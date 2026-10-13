@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { Inter, Lora } from "next/font/google";
 import { motionBootScript } from "@/components/motion";
@@ -38,6 +39,7 @@ export default function RootLayout({
       <body className={`${inter.variable} ${lora.variable} antialiased`}>
         {children}
         <RevealObserver />
+        <Analytics />
       </body>
     </html>
   );

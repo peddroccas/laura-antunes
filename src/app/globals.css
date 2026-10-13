@@ -79,8 +79,16 @@ body {
     color: var(--color-ink);
     text-align: center;
     width: 100%;
-    /* Como no Figma: palavras mais largas que a coluna (ex.: "transformação" a 56px no mobile) quebram no meio */
-    overflow-wrap: anywhere;
+  }
+
+  /* No mobile o tamanho acompanha a largura da tela para que a palavra mais longa
+     ("transformação") caiba inteira na coluna, com folga até para barra de rolagem:
+     ~46px em 390px, 56px no máximo. */
+  @media (max-width: 63.99rem) {
+    .t-quote {
+      font-size: min(56px, calc((100vw - 48px) / 7.4));
+      line-height: 1.143;
+    }
   }
 
   .t-body {

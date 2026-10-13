@@ -26,7 +26,9 @@ export function Header() {
             rel="noopener noreferrer"
             className="btn btn-primary gap-2 px-[11px] lg:gap-5 lg:px-6"
           >
-            Agendar conversa
+            {/* Abaixo de 380px (ex.: Androids de 360px) o texto completo não cabe ao lado do logo */}
+            <span className="max-[379px]:hidden">Agendar conversa</span>
+            <span className="hidden max-[379px]:inline">Agendar</span>
             <ArrowUpRight />
           </a>
         </nav>
