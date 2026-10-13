@@ -314,21 +314,20 @@ html[data-motion] [data-reveal="line"][data-shown] {
   background-size: 100% 100%;
 }
 
-/* Marca botânica que se desenha (requer pathLength="1" no path) */
-html[data-motion] [data-reveal="draw"] {
+/* Flor do logo que cresce de baixo para cima. O recorte fica no filho, não no bloco observado. */
+html[data-motion] [data-reveal="bloom"] {
   opacity: 1;
   transform: none;
 }
 
-html[data-motion] [data-reveal="draw"] path {
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-  transition: stroke-dashoffset 2.4s var(--ease-in-out);
+html[data-motion] [data-reveal="bloom"] > * {
+  clip-path: inset(100% 0 0 0);
+  transition: clip-path 1.8s var(--ease-in-out);
   transition-delay: calc(var(--d, 0) * 1ms);
 }
 
-html[data-motion] [data-reveal="draw"][data-shown] path {
-  stroke-dashoffset: 0;
+html[data-motion] [data-reveal="bloom"][data-shown] > * {
+  clip-path: inset(0 0 0 0);
 }
 
 /* FAQ: abre e fecha com altura animada (Chrome/Edge 131+; nos demais, instantâneo) */

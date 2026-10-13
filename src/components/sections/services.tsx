@@ -1,6 +1,6 @@
 import type { ComponentType, SVGProps } from "react";
-import { BotanicalMarkLarge, Cloud, MessagesSquare, ScanFace, Sprout } from "@/components/icons";
-import { SectionHeading } from "@/components/brand";
+import { Cloud, MessagesSquare, ScanFace, Sprout } from "@/components/icons";
+import { Flower, SectionHeading } from "@/components/brand";
 import { delay, stagger, Words } from "@/components/motion";
 
 type Service = {
@@ -19,7 +19,7 @@ const services: Service[] = [
   },
   {
     icon: MessagesSquare,
-    title: "Psicoterapia de orientação analítica junguiana",
+    title: "Psicoterapia de abordagem analítica junguiana",
     description:
       "Um espaço de escuta e reflexão voltado à compreensão das experiências, emoções, conflitos e transformações pessoais.",
   },
@@ -69,7 +69,7 @@ export function Services() {
 
       <section aria-label="Reflexão" className="bg-cream">
         <div className="px-section mx-auto flex max-w-[1440px] flex-col items-center gap-6 py-16 lg:py-24">
-          <BotanicalMarkLarge className="text-green" data-reveal="draw" />
+          <Flower />
           <p className="t-quote max-w-[760px]" data-reveal="words" style={delay(300)}>
             <Words text="Nem toda transformação começa com respostas. Às vezes, começa com um espaço para ser ouvido." />
           </p>

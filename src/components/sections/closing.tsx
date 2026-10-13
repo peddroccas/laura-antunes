@@ -1,5 +1,5 @@
-import { Logo } from "@/components/brand";
-import { ArrowUpRight, BotanicalMarkLarge, Instagram, Mail, Phone } from "@/components/icons";
+import { Flower, Logo } from "@/components/brand";
+import { ArrowUpRight, Instagram, Mail, Phone } from "@/components/icons";
 import { delay, stagger, Words } from "@/components/motion";
 import { contact, credentials, links } from "@/lib/site";
 
@@ -98,7 +98,7 @@ export function FinalCta() {
   return (
     <section aria-label="Próximo passo" className="bg-cream">
       <div className="px-section mx-auto flex max-w-[1440px] flex-col items-center gap-6 py-16 text-center lg:py-24">
-        <BotanicalMarkLarge className="text-green" data-reveal="draw" />
+        <Flower />
         <p className="t-eyebrow" data-reveal="" style={delay(200)}>
           PRÓXIMO PASSO
         </p>

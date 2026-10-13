@@ -19,7 +19,7 @@ export const links = {
 };
 
 export const credentials =
-  "CRP 01/29065 • Psicóloga especializada em processos de luto • Dois anos de experiência profissional • Atendimento on-line exclusivamente.";
+  "CRP 01/29065 • Psicóloga especializada em processos de luto • Atendimento on-line exclusivamente.";
 
 export const nav = [
   { label: "Início", href: "#inicio" },

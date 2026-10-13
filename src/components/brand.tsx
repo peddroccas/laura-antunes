@@ -1,25 +1,49 @@
-import { BotanicalMark } from "@/components/icons";
 import { delay } from "@/components/motion";
 
 type LogoProps = {
   tone?: "light" | "dark";
-  /** "header": 18px no mobile e 30px no desktop. "footer": sempre 30px. */
+  /** "header": 34px de altura no mobile e 50px no desktop. "footer": sempre 50px. */
   variant?: "header" | "footer";
 };
 
+// Logo da cliente (368×78). Usado como máscara para a cor vir do site: verde-escuro ou creme.
 export function Logo({ tone = "light", variant = "header" }: LogoProps) {
-  const onDark = tone === "dark";
-  const nameSize =
-    variant === "header"
-      ? "text-[18px] leading-[23px] lg:text-[30px] lg:leading-[38px]"
-      : "text-[30px] leading-[38px]";
+  const size = variant === "header" ? "h-[34px] lg:h-[50px]" : "h-[50px]";
   return (
-    <span className="flex items-center gap-[10px]">
-      <BotanicalMark className={`shrink-0 ${onDark ? "text-paper" : "text-green"}`} />
-      <span className="flex flex-col gap-px whitespace-nowrap">
-        <span className={`font-serif ${nameSize} ${onDark ? "text-paper" : "text-ink"}`}>Laura Antunes</span>
-        <span className={`text-[9px] leading-[11px] ${onDark ? "text-paper" : "text-green"}`}>PSICÓLOGA</span>
-      </span>
+    <span
+      role="img"
+      aria-label="Laura Antunes, psicóloga"
+      className={`block aspect-[368/78] shrink-0 self-start ${size} ${tone === "dark" ? "bg-paper" : "bg-ink"}`}
+      style={{
+        maskImage: "url(/images/logo-laura-antunes.png)",
+        maskSize: "contain",
+        maskRepeat: "no-repeat",
+        WebkitMaskImage: "url(/images/logo-laura-antunes.png)",
+        WebkitMaskSize: "contain",
+        WebkitMaskRepeat: "no-repeat",
+      }}
+    />
+  );
+}
+
+// Flor recortada do logo da cliente (55×58), em verde. Cresce de baixo para cima ao aparecer.
+export function Flower() {
+  return (
+    <span data-reveal="bloom" className="block h-[40px] w-[38px]">
+      <span
+        aria-hidden="true"
+        className="block size-full bg-green"
+        style={{
+          maskImage: "url(/images/flor.png)",
+          maskSize: "contain",
+          maskRepeat: "no-repeat",
+          maskPosition: "center",
+          WebkitMaskImage: "url(/images/flor.png)",
+          WebkitMaskSize: "contain",
+          WebkitMaskRepeat: "no-repeat",
+          WebkitMaskPosition: "center",
+        }}
+      />
     </span>
   );
 }

@@ -36,7 +36,7 @@ export function About() {
             história, o tempo e as necessidades de cada pessoa.
           </p>
           <p className="t-body" data-reveal="" style={delay(280)}>
-            Por meio da psicoterapia de orientação analítica junguiana, busco compreender, junto a cada pessoa, os
+            Por meio da psicoterapia de abordagem analítica junguiana, busco compreender, junto a cada pessoa, os
             significados de suas experiências e os caminhos possíveis para lidar com suas emoções e transformações.
           </p>
           <hr className="h-px border-0 bg-rule" data-reveal="line" style={delay(360)} />
