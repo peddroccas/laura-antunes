@@ -1,4 +1,5 @@
 import { BotanicalMark } from "@/components/icons";
+import { delay } from "@/components/motion";
 
 type LogoProps = {
   tone?: "light" | "dark";
@@ -32,8 +33,12 @@ type SectionHeadingProps = {
 export function SectionHeading({ eyebrow, title, className = "" }: SectionHeadingProps) {
   return (
     <div className={`flex flex-col gap-4 ${className}`}>
-      <p className="t-eyebrow">{eyebrow}</p>
-      <h2 className="t-h2">{title}</h2>
+      <p className="t-eyebrow" data-reveal="" style={delay(0)}>
+        {eyebrow}
+      </p>
+      <h2 className="t-h2" data-reveal="" style={delay(100)}>
+        {title}
+      </h2>
     </div>
   );
 }

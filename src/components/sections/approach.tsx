@@ -1,5 +1,6 @@
 import { SectionHeading } from "@/components/brand";
 import { ArrowUpRight, Check } from "@/components/icons";
+import { stagger } from "@/components/motion";
 import { links } from "@/lib/site";
 
 const differentials = [
@@ -72,7 +73,7 @@ export function Differentials() {
         <SectionHeading eyebrow="DIFERENCIAIS" title="Um cuidado que respeita a sua história." />
         <ul className="flex flex-col gap-4">
           {differentials.map((item) => (
-            <li key={item.title} className="flex items-start gap-[18px] rounded-2xl bg-cream p-7">
+            <li key={item.title} className="flex items-start gap-[18px] rounded-2xl bg-cream p-7" data-reveal="">
               <Check className="shrink-0 text-green" />
               <div className="flex min-w-0 flex-col gap-2">
                 <h3 className="t-card-title">{item.title}</h3>
@@ -93,7 +94,9 @@ export function HowItWorks() {
         <SectionHeading eyebrow="COMO FUNCIONA" title="Começar pode ser mais simples do que parece." />
         <ol className="flex flex-col gap-8 lg:grid lg:grid-cols-3 lg:items-start lg:gap-12">
           {steps.map((step, index) => (
-            <li key={step.title} className="flex flex-col gap-5 border-t border-rule pt-[23px]">
+            <li key={step.title} className={`relative flex flex-col gap-5 pt-6 ${stagger[index]}`} data-reveal="">
+              {/* Linha do topo (no Figma é um traço interno de 1px); se desenha da esquerda ao aparecer */}
+              <span aria-hidden="true" className="absolute inset-x-0 top-0 h-px bg-rule" data-reveal="line" />
               <span className="font-serif text-[36px] leading-[46px] text-green">
                 {String(index + 1).padStart(2, "0")}
               </span>
@@ -116,14 +119,17 @@ export function ForWhom() {
           {situations.map((item, index) => (
             <li
               key={item.title}
-              className={`flex flex-col gap-3 rounded-2xl bg-cream p-7 ${index < 3 ? "lg:col-span-2" : "lg:col-span-3"}`}
+              data-reveal=""
+              className={`flex flex-col gap-3 rounded-2xl bg-cream p-7 ${
+                index < 3 ? `lg:col-span-2 ${stagger[index]}` : `lg:col-span-3 ${stagger[index - 3]}`
+              }`}
             >
               <h3 className="t-card-title">{item.title}</h3>
               <p className="t-body">{item.description}</p>
             </li>
           ))}
         </ul>
-        <div className="flex flex-col gap-4 lg:items-start">
+        <div className="flex flex-col gap-4 lg:items-start" data-reveal="">
           <p className="t-body">
             Se você sente que precisa de um espaço para conversar, pode conhecer melhor meu trabalho e tirar suas
             dúvidas.

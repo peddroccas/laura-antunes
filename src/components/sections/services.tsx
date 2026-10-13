@@ -1,6 +1,7 @@
 import type { ComponentType, SVGProps } from "react";
 import { BotanicalMarkLarge, Cloud, MessagesSquare, ScanFace, Sprout } from "@/components/icons";
 import { SectionHeading } from "@/components/brand";
+import { delay, stagger, Words } from "@/components/motion";
 
 type Service = {
   icon: ComponentType<SVGProps<SVGSVGElement>>;
@@ -44,16 +45,17 @@ export function Services() {
         <div className="px-section mx-auto flex max-w-[1440px] flex-col gap-10 py-16 lg:py-24">
           <div className="flex flex-col gap-4">
             <SectionHeading eyebrow="SERVIÇOS" title="Cuidado psicológico para diferentes momentos da vida." />
-            <p className="t-body">
+            <p className="t-body" data-reveal="" style={delay(200)}>
               Cada experiência é única. Conheça as possibilidades de acompanhamento e encontre informações para
               compreender qual modalidade pode fazer sentido para você ou sua organização.
             </p>
           </div>
           <ul className="flex flex-col gap-4 lg:grid lg:grid-cols-3 lg:items-start">
-            {services.map(({ icon: Icon, title, description, wide }) => (
+            {services.map(({ icon: Icon, title, description, wide }, i) => (
               <li
                 key={title}
-                className={`flex flex-col gap-5 rounded-2xl bg-cream p-7 ${wide ? "lg:col-span-3" : ""}`}
+                data-reveal=""
+                className={`flex flex-col gap-5 rounded-2xl bg-cream p-7 ${wide ? "lg:col-span-3" : stagger[i]}`}
               >
                 <Icon className="text-green" />
                 <h3 className="t-card-title">{title}</h3>
@@ -67,9 +69,9 @@ export function Services() {
 
       <section aria-label="Reflexão" className="bg-cream">
         <div className="px-section mx-auto flex max-w-[1440px] flex-col items-center gap-6 py-16 lg:py-24">
-          <BotanicalMarkLarge className="text-green" />
-          <p className="t-quote max-w-[760px]">
-            Nem toda transformação começa com respostas. Às vezes, começa com um espaço para ser ouvido.
+          <BotanicalMarkLarge className="text-green" data-reveal="draw" />
+          <p className="t-quote max-w-[760px]" data-reveal="words" style={delay(300)}>
+            <Words text="Nem toda transformação começa com respostas. Às vezes, começa com um espaço para ser ouvido." />
           </p>
         </div>
       </section>

@@ -4,7 +4,8 @@ import { links, nav } from "@/lib/site";
 
 export function Header() {
   return (
-    <header className="border-b border-line bg-cream">
+    // Fixo ao rolar; com 88% de opacidade sobre o creme, no topo fica idêntico ao Figma
+    <header className="sticky top-0 z-40 border-b border-line bg-cream/[0.88] backdrop-blur-md">
       <div className="px-section mx-auto flex h-[88px] max-w-[1440px] items-center justify-between gap-2 lg:h-[108px]">
         <a href="#inicio" className="link shrink-0" aria-label="Laura Antunes, psicóloga, início">
           <Logo />
@@ -13,7 +14,7 @@ export function Header() {
           <ul className="hidden items-center gap-8 xl:flex">
             {nav.map((item) => (
               <li key={item.href}>
-                <a href={item.href} className="link text-[13px] leading-[16px] text-ink hover:text-green">
+                <a href={item.href} className="link link-underline text-[13px] leading-[16px] text-ink">
                   {item.label}
                 </a>
               </li>

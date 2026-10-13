@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Lora } from "next/font/google";
+import { motionBootScript } from "@/components/motion";
+import { RevealObserver } from "@/components/reveal-observer";
 import "./globals.css";
 
 const inter = Inter({
@@ -28,9 +30,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR">
+    // suppressHydrationWarning: o script de movimento adiciona `data-motion` ao <html> antes da hidratação
+    <html lang="pt-BR" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: motionBootScript }} />
+      </head>
       <body className={`${inter.variable} ${lora.variable} antialiased`}>
         {children}
+        <RevealObserver />
       </body>
     </html>
   );
