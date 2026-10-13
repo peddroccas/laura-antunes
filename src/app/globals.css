@@ -1,26 +1,140 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/* Tokens extraídos do Figma "Laura Antunes" (desktop 1440 / mobile 390) */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-cream: #fffefa;
+  --color-ink: #293d33;
+  --color-green: #486451;
+  --color-muted: #626a60;
+  --color-paper: #f8f8f0;
+  --color-sage: #e4e9dd;
+  --color-sand: #eee7da;
+  --color-line: #e8e1d5;
+  --color-rule: #cdd3c6;
+  --color-rule-dark: #abb6a6;
+
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-lora);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Espaçamento lateral das seções: 24px no mobile, 96px no desktop de 1440px */
+.px-section {
+  padding-inline: 24px;
+}
+
+@media (min-width: 64rem) {
+  .px-section {
+    padding-inline: clamp(48px, 6.667vw, 96px);
+  }
+}
+
+@layer components {
+  .t-eyebrow {
+    font-family: var(--font-inter);
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 17px;
+    color: var(--color-green);
+  }
+
+  .t-h2 {
+    font-family: var(--font-lora);
+    font-weight: 400;
+    font-size: 44px;
+    line-height: 53px;
+    color: var(--color-ink);
+  }
+
+  .t-quote {
+    font-family: var(--font-lora);
+    font-weight: 400;
+    font-size: 56px;
+    line-height: 64px;
+    color: var(--color-ink);
+    text-align: center;
+    width: 100%;
+    /* Como no Figma: palavras mais largas que a coluna (ex.: "transformação" a 56px no mobile) quebram no meio */
+    overflow-wrap: anywhere;
+  }
+
+  .t-body {
+    font-size: 16px;
+    line-height: 28px;
+    color: var(--color-muted);
+  }
+
+  .t-small {
+    font-size: 13px;
+    line-height: 23px;
+    color: var(--color-muted);
+  }
+
+  .t-card-title {
+    font-family: var(--font-lora);
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 29px;
+    color: var(--color-ink);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    height: 54px;
+    padding-inline: 24px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 17px;
+    white-space: nowrap;
+    transition:
+      background-color 150ms ease,
+      border-color 150ms ease;
+  }
+
+  .btn-primary {
+    background: var(--color-green);
+    color: var(--color-paper);
+  }
+
+  .btn-primary:hover {
+    background: #3b5443;
+  }
+
+  .btn-outline {
+    background: var(--color-cream);
+    color: var(--color-ink);
+    box-shadow: inset 0 0 0 1px var(--color-rule);
+  }
+
+  .btn-outline:hover {
+    box-shadow: inset 0 0 0 1px var(--color-green);
+  }
+
+  .btn:focus-visible,
+  .link:focus-visible,
+  summary:focus-visible {
+    outline: 2px solid var(--color-green);
+    outline-offset: 3px;
+  }
 }
