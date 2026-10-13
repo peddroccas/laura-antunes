@@ -26,7 +26,7 @@ export function Logo({ tone = "light", variant = "header" }: LogoProps) {
   );
 }
 
-// Flor recortada do logo da cliente (55×58), em verde. Cresce de baixo para cima ao aparecer.
+// Flor do logo da cliente (arquivo próprio, 133×140), em verde. Cresce de baixo para cima ao aparecer.
 export function Flower() {
   return (
     <span data-reveal="bloom" className="block h-[40px] w-[38px]">
