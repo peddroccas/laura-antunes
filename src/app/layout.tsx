@@ -19,10 +19,27 @@ const lora = Lora({
   display: "swap",
 });
 
+const title = "Laura Antunes · Psicóloga | Psicoterapia on-line para processos de luto";
+const description =
+  "Um espaço de escuta e acolhimento para atravessar o luto, compreender suas emoções e encontrar caminhos possíveis para seguir. Psicoterapia on-line, encontro inicial gratuito de 20 minutos.";
+
+// Ícones e imagem de compartilhamento vêm dos arquivos em src/app
+// (favicon.ico, icon.png, apple-icon.png, opengraph-image.png, twitter-image.png).
 export const metadata: Metadata = {
-  title: "Laura Antunes · Psicóloga | Psicoterapia on-line para processos de luto",
-  description:
-    "Um espaço de escuta e acolhimento para atravessar o luto, compreender suas emoções e encontrar caminhos possíveis para seguir. Psicoterapia on-line, encontro inicial gratuito de 20 minutos.",
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    siteName: "Laura Antunes · Psicóloga",
+    locale: "pt_BR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+  },
 };
 
 export default function RootLayout({
